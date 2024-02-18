@@ -1,0 +1,165 @@
+========================================================================================================================
+Кейс 1.
+Стори: PROJECT-1454
+Папка тест-кейса: /Наш проект/Релиз 4.3/PROJECT-1454 Обновить проверки платежа физическим лицам
+Номер и название кейса: PROJECT-T2089 Отправка платежа физическому лицу. Канал = LOP, вип клиент.
+Отправить на эндпоинт endpoin/vip следующее тело запроса:
+{
+    "request_id": "f603ecf4-032a-4e98-9b9d-2cdab5273295",
+    "channel": "LOP",
+    "status": "OLD",
+    "first_flag": true,
+    "second_flag": "VIP_CLIENT",
+    "third_flag": false,
+    "personal_id": 2376546,
+    "type": "rpp",
+    "party_flag": true,
+    "payment": {
+        "guid": "459661d0-bb46-46a4-9a1f-cdc597bde4d3",
+        "date": "2024-02-18",
+        "amount": 700.0
+    },
+    "payer": {
+        "bank": {
+            "name": "Центральное отделение Нашего банка",
+            "corrAcc": "30101510100000000144",
+            "bic": "044525187"
+        },
+        "typeClient": "inner",
+        "accountNumber": "40402810001030000007"
+    },
+    "payee": {
+        "bank": {
+            "name": "ПАО Наш Банк",
+            "corrAcc": "30101510100000000122",
+            "bic": "241529234"
+        },
+        "typeClient": "inner",
+        "accountNumber": "40503810001070000222"
+    },
+    "additional_docs": [
+        "COM",
+        "FLOW"
+    ]
+}
+
+Тело ответа:
+{
+    "timestamp": "2024-02-18T10:46:05.248+00:00",
+    "status": 200,
+    "result": "SUCCESS",
+    "path": "/endpoin/vip"
+}
+
+
+
+========================================================================================================================
+Кейс 2.
+Стори: BKLDB-1477, BKLDB-1478
+Папка тест-кейса: /Наш проект/Релиз 4.3/PROJECT-1477 Реализация зачислений при внешних платежах
+Номер и название кейса: PROJECT-T2117 Отправка платежа в будущем. Внешний плательщик
+Отправить на эндпоинт endpoint/special следующее тело запроса:
+{
+    "request_id": "fb8b22b1-0bc0-47d7-9eaf-62606b35c9e4",
+    "channel": "ABC",
+    "first_flag": true,
+    "second_flag": "STANDART",
+    "third_flag": false,
+    "personal_id": 8871199,
+    "type": "rpp",
+    "party_flag": false,
+    "payment": {
+        "guid": "b617c3d1-4e46-426c-adeb-8ed0e9982585",
+        "date": "2024-02-18",
+        "future_date": "2024-02-23",
+        "amount": 700.0
+    },
+    "payer": {
+        "bank": {
+            "name": "БАНК ВТБ (ПАО)",
+            "corrAcc": "30101810700000000187",
+            "bic": "044525187"
+        },
+        "typeClient": "outer",
+        "accountNumber": "40702810001030000001"
+    },
+    "payee": {
+        "bank": {
+            "name": "ПАО Наш Банк",
+            "corrAcc": "30101510100000000122",
+            "bic": "241529234"
+        },
+        "typeClient": "inner",
+        "accountNumber": "40503810001070000222"
+    },
+    "additional_docs": [
+        "COM",
+        "FLOW"
+    ]
+}
+
+Тело ответа:
+{
+    "timestamp": "2024-02-18T10:46:05.286+00:00",
+    "status": 200,
+    "result": "SUCCESS",
+    "path": "/endpoint/special"
+}
+
+
+
+========================================================================================================================
+Кейс 3.
+Стори: PROJECT-1500
+Папка тест-кейса: /Наш проект/Релиз 4.3/PROJECT-1500 Платежи между корпоративными клиентами
+Номер и название кейса: PROJECT-T2097 Отправка платежа юридическому лицу. Канал = DSA, платеж между отделениями банка
+Отправить на эндпоинт standart/endpoint следующее тело запроса:
+{
+    "request_id": "370c27e7-9e8c-4784-baff-eb6531618774",
+    "channel": "DSA",
+    "status": "NEW",
+    "first_flag": true,
+    "second_flag": "STANDART",
+    "third_flag": true,
+    "personal_id": 57722345,
+    "type": "ccf",
+    "party_flag": false,
+    "payment": {
+        "guid": "aab9504c-2ccf-41e9-858d-e68710ccfd05",
+        "date": "2024-02-18",
+        "amount": 500.0
+    },
+    "payer": {
+        "bank": {
+            "name": "Уральское отделение Нашего Банка",
+            "corrAcc": "30101510100000000144",
+            "bic": "241520021"
+        },
+        "typeClient": "inner",
+        "accountNumber": "40901810001070000123"
+    },
+    "payee": {
+        "bank": {
+            "name": "ПАО Наш Банк",
+            "corrAcc": "30101510100000000122",
+            "bic": "241529234"
+        },
+        "typeClient": "inner",
+        "accountNumber": "40812810001070000567"
+    },
+    "additional_docs": [
+        "ACDC",
+        "GP"
+    ]
+}
+
+Тело ответа:
+{
+    "timestamp": "2024-02-18T10:46:05.329+00:00",
+    "status": 200,
+    "result": "SUCCESS",
+    "path": "/standart/endpoint"
+}
+
+
+
