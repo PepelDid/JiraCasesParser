@@ -8,7 +8,7 @@ import uuid
 import requests
 import json
 
-hosts = {"STAND1": "http://stand1.ru",
+hosts = {"STAND1": "http://suggestions.dadata.ru/suggestions/api",
          "STAND2": "http://stand2.ru",
          "STAND3": "http://stand3.ru",
          }
